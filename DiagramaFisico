@@ -1,74 +1,93 @@
-CREATE TABLE `estudante` (
-  `id_estudante` integer PRIMARY KEY,
-  `nome` varchar(100),
-  `email` varchar(100),
-  `curso` varchar(50),
-  `ano_entrada` integer
-);
+CREATE TABLE [estudante] (
+  [id_estudante] smallint PRIMARY KEY,
+  [nome] varchar(100),
+  [email] varchar(100),
+  [curso] varchar(50),
+  [ano_entrada] date
+)
+GO
 
-CREATE TABLE `emprestimo` (
-  `id_emprestimo` integer PRIMARY KEY,
-  `id_estudante` integer,
-  `valor_emprestimo` decimal(10,2),
-  `data_inicio` date,
-  `data_vencimento` date,
-  `taxa_juros` decima(5,2)
-);
+CREATE TABLE [emprestimo] (
+  [id_emprestimo] smallint PRIMARY KEY,
+  [id_estudante] smallint,
+  [valor_emprestimo] decimal(10,2),
+  [data_inicio] date,
+  [data_vencimento] date,
+  [taxa_juros] decimal(5,2)
+)
+GO
 
-CREATE TABLE `parcelas` (
-  `id_parcelas` interger PRIMARY KEY,
-  `id_emprestimo` integer,
-  `numero_parcela` integer,
-  `valor_parcela` decimal(10,2),
-  `data_vencimento` date,
-  `status` varchar(20)
-);
+CREATE TABLE [parcelas] (
+  [id_parcelas] smallint PRIMARY KEY,
+  [id_emprestimo] smallint,
+  [numero_parcela] smallint,
+  [valor_parcela] decimal(10,2),
+  [data_vencimento] date,
+  [status] varchar(20)
+)
+GO
 
-CREATE TABLE `garantia` (
-  `id_garantia` integer PRIMARY KEY,
-  `id_emprestimo` integer,
-  `tipo_garantia` varchar(50),
-  `descrição` varchar(100)
-);
+CREATE TABLE [garantia] (
+  [id_garantia] smallint PRIMARY KEY,
+  [id_emprestimo] smallint,
+  [id_fiador] smallint,
+  [tipo_garantia] varchar(50),
+  [descricao] varchar(100)
+)
+GO
 
-CREATE TABLE `fiadores` (
-  `id_fiador` integer PRIMARY KEY,
-  `id_estudante` integer,
-  `nome_fiador` varchar(100),
-  `contato` varchar(10)
-);
+CREATE TABLE [fiadores] (
+  [id_fiador] smallint PRIMARY KEY,
+  [id_estudante] smallint,
+  [nome_fiador] varchar(100),
+  [contato] varchar(16)
+)
+GO
 
-CREATE TABLE `pagamentos` (
-  `id_pagamento` integer PRIMARY KEY,
-  `id_parcela` integer,
-  `data_pagamento` date,
-  `valor_pago` decimal(10,2)
-);
+CREATE TABLE [pagamentos] (
+  [id_pagamento] smallint PRIMARY KEY,
+  [id_parcelas] smallint,
+  [data_pagamento] date,
+  [valor_pago] decimal(10,2)
+)
+GO
 
-CREATE TABLE `instituicoes_financeiras` (
-  `id_instituicao` integer PRIMARY KEY,
-  `id_emprestimo` integer,
-  `nome_instituicao` varchar(40),
-  `taxa_base` decimal(10,5)
-);
+CREATE TABLE [instituicoes_financeiras] (
+  [id_instituicao] smallint PRIMARY KEY,
+  [id_emprestimo] smallint,
+  [nome_instituicao] varchar(40),
+  [taxa_base] decimal(10,5)
+)
+GO
 
-CREATE TABLE `contratos` (
-  `id_contrato` integer PRIMARY KEY,
-  `id_emprestimo` integerger,
-  `data_contrato` date,
-  `arquivo` blob
-);
+CREATE TABLE [contratos] (
+  [id_contrato] smallint PRIMARY KEY,
+  [id_emprestimo] smallint,
+  [data_contrato] date,
+  [arquivo] varchar(200)
+)
+GO
 
-ALTER TABLE `garantia` ADD FOREIGN KEY (`id_emprestimo`) REFERENCES `emprestimo` (`id_emprestimo`);
+ALTER TABLE [garantia] ADD FOREIGN KEY ([id_emprestimo]) REFERENCES [emprestimo] ([id_emprestimo])
+GO
 
-ALTER TABLE `parcelas` ADD FOREIGN KEY (`id_emprestimo`) REFERENCES `emprestimo` (`id_emprestimo`);
+ALTER TABLE [parcelas] ADD FOREIGN KEY ([id_emprestimo]) REFERENCES [emprestimo] ([id_emprestimo])
+GO
 
-ALTER TABLE `estudante` ADD FOREIGN KEY (`id_estudante`) REFERENCES `emprestimo` (`id_emprestimo`);
+ALTER TABLE [emprestimo] ADD FOREIGN KEY ([id_estudante]) REFERENCES [estudante] ([id_estudante])
+GO
 
-ALTER TABLE `fiadores` ADD FOREIGN KEY (`id_estudante`) REFERENCES `estudante` (`id_estudante`);
+ALTER TABLE [fiadores] ADD FOREIGN KEY ([id_estudante]) REFERENCES [estudante] ([id_estudante])
+GO
 
-ALTER TABLE `pagamentos` ADD FOREIGN KEY (`id_parcela`) REFERENCES `parcelas` (`id_parcelas`);
+ALTER TABLE [pagamentos] ADD FOREIGN KEY ([id_parcelas]) REFERENCES [parcelas] ([id_parcelas])
+GO
 
-ALTER TABLE `contratos` ADD FOREIGN KEY (`id_emprestimo`) REFERENCES `emprestimo` (`id_emprestimo`);
+ALTER TABLE [contratos] ADD FOREIGN KEY ([id_emprestimo]) REFERENCES [emprestimo] ([id_emprestimo])
+GO
 
-ALTER TABLE `instituicoes_financeiras` ADD FOREIGN KEY (`id_emprestimo`) REFERENCES `emprestimo` (`id_emprestimo`);
+ALTER TABLE [instituicoes_financeiras] ADD FOREIGN KEY ([id_emprestimo]) REFERENCES [emprestimo] ([id_emprestimo])
+GO
+
+ALTER TABLE [garantia] ADD FOREIGN KEY ([id_fiador]) REFERENCES [fiadores] ([id_fiador])
+GO
