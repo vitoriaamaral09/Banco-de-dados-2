@@ -3,7 +3,7 @@ CREATE TABLE [estudante] (
   [nome] varchar(100),
   [email] varchar(100),
   [curso] varchar(50),
-  [ano_entrada] date
+  [data_entrada] date
 )
 GO
 
