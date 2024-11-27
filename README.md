@@ -2,12 +2,12 @@
 
 ##  Integrantes
 
-* Eunice Correia - @EuniceCorreia
-* Katleen Mendes - @Katleenmm
-* Hian Rick - @HianRick
-* Vitoria Viana - @vitoriaamaral09
-* Maria Laura Jeronimo - @mlaurajeronimo
-* Patricia Morais - @patriciamrs
+* Eunice Correia - [@EuniceCorreia](https://github.com/eunicecorreia)
+* Katleen Mendes - [@Katleenmm](https://github.com/katleenmm)
+* Hian Rick - [@HianRick](https://github.com/hianrick)
+* Vitoria Viana - [@vitoriaamaral09](https://github.com/vitoriaamaral09)
+* Maria Laura Jeronimo - [@mlaurajeronimo](https://github.com/mlaurajeronimo)
+* Patricia Morais - [@patriciamrs](https://github.com/patriciamrs)
 
 ## Modelo Físico 
 
@@ -30,7 +30,7 @@ Abaixo, segue os scripts SQL separados por tipo:
 
 * DDL ddl.sql (arrumar link)
 * Índices indices.sql (arrumar link)
-* DML dml.sql (arrumar link)
+* DML [dml.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/PopularTabelas)
 * Triggers triggers.sql (arrumar link)
 * Stored Procedures stored_procedures.sql (arrumar link)
 * Functions functions.sql (arrumar link)
