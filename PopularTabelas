@@ -1,0 +1,150 @@
+INSERT INTO estudante (id_estudante, nome, email, curso, data_entrada) VALUES
+(1, 'Alice Silva', 'alice.silva@email.com', 'Engenharia', '2021-01-10'),
+(2, 'Bruno Santos', 'bruno.santos@email.com', 'Direito', '2022-01-10'),
+(3, 'Carla Almeida', 'carla.almeida@email.com', 'Medicina', '2023-05-10'),
+(4, 'Diego Costa', 'diego.costa@email.com', 'Administração', '2022-01-15'),
+(5, 'Elaine Rocha', 'elaine.rocha@email.com', 'Arquitetura', '2023-05-15'),
+(6, 'Fabio Pereira', 'fabio.pereira@email.com', 'Economia', '2024-01-10'),
+(7, 'Gabriela Lima', 'gabriela.lima@email.com', 'Psicologia', '2021-05-15'),
+(8, 'Henrique Souza', 'henrique.souza@email.com', 'Engenharia', '2023-06-10'),
+(9, 'Isabela Mendes', 'isabela.mendes@email.com', 'Direito', '2024-01-10'),
+(10, 'João Nunes', 'joao.nunes@email.com', 'Medicina', '2022-06-15');
+
+insert into emprestimo (id_emprestimo, id_estudante, valor_emprestimo, data_inicio, data_vencimento, taxa_juros) values
+(101, 1, 5000.00, '2021-01-20', '2021-06-20', 5.0),
+(102, 2, 1500.00, '2022-03-15', '2022-04-15', 4.5),
+(103, 3, 2500.00, '2023-09-20', '2023-10-20', 6.0),
+(104, 4, 3500.00, '2023-05-05', '2023-07-25', 5.5),
+(105, 5, 4500.00, '2023-07-25', '2023-11-25', 5.8),
+(106, 6, 3000.00, '2024-07-05', '2024-09-05', 4.2),
+(107, 7, 6000.00, '2023-07-15', '2023-12-15', 6.3),
+(108, 8, 7000.00, '2024-08-10', '2024-11-10', 4.8),
+(109, 9, 2000.00, '2024-03-01', '2024-06-01', 4.7),
+(110, 10, 5500.00, '2022-10-01', '2023-10-01', 5.2);
+
+insert into parcelas (id_parcelas, id_emprestimo, numero_parcela, valor_parcela,data_vencimento, status) values 
+(201, 101, 1, 1000.00, '2021-02-20', 'Pago'),
+(202, 101, 2, 1000.00, '2021-03-20', 'Pago'),
+(203, 101, 3, 1000.00, '2021-04-20', 'Pendente'),
+(204, 101, 4, 1000.00, '2021-05-20', 'Pendente'),
+(205, 101, 5, 1000.00, '2021-06-20', 'Pendente'),
+
+(206, 102, 1, 500.00, '2022-03-15', 'Pago'),
+(207, 102, 2, 500.00, '2022-04-15', 'Pendente'),
+
+(208, 103, 1, 1500.00, '2023-09-20', 'Pago'),
+(209, 103, 2, 1000.00, '2023-10-20', 'Pago'),
+
+(210, 104, 1, 1500.00, '2023-05-05', 'Pago'),
+(211, 104, 2, 1000.00, '2023-06-25', 'Pago'),
+(212, 104, 3, 1000.00, '2023-07-25', 'Pendente'),
+
+(213, 105, 1, 1000.00, '2023-07-25', 'Pago'),
+(214, 105, 2, 1000.00, '2023-08-25', 'Pago'),
+(215, 105, 3, 1000.00, '2023-09-25', 'Pago'),
+(216, 105, 4, 750.00, '2023-10-25', 'Pendente'),
+(217, 105, 5, 750.00, '2023-11-25', 'Pendente'),
+
+(218, 106, 1, 1000.00, '2024-07-05', 'Pago'),
+(219, 106, 2, 1000.00, '2024-08-05', 'Pago'),
+(220, 106, 3, 1000.00, '2024-09-05', 'Pendente'),
+
+(221, 107, 1, 1000.00, '2023-07-15', 'Pago'),
+(222, 107, 2, 1000.00, '2023-08-15', 'Pago'),
+(223, 107, 3, 1000.00, '2023-09-15', 'Pago'),
+(224, 107, 4, 1000.00, '2023-10-15', 'Pendente'),
+(225, 107, 5, 1000.00, '2023-11-15', 'Pendente'),
+(226, 107, 6, 1000.00, '2023-12-15', 'Pendente'),
+
+(227, 108, 1, 1750.00, '2024-08-10', 'Pago'),
+(228, 108, 2, 1750.00, '2024-09-10', 'Pago'),
+(229, 108, 3, 1750.00, '2024-10-10', 'Pendente'),
+(230, 108, 4, 1750.00, '2024-11-10', 'Pendente'),
+
+(231, 109, 1, 500.00, '2024-03-01', 'Pago'),
+(232, 109, 2, 500.00, '2024-04-01', 'Pago'),
+(233, 109, 3, 500.00, '2024-05-01', 'Pago'),
+(234, 109, 4, 500.00, '2024-06-01', 'Pago'),
+
+(235, 110, 1, 1500.00, '2023-07-01', 'Pago'),
+(236, 110, 2, 1000.00, '2023-08-01', 'Pago'),
+(237, 110, 3, 1000.00, '2023-09-01', 'Pago'),
+(238, 110, 4, 1000.00, '2023-10-01', 'Pago'),
+(239, 110, 5, 1000.00, '2023-11-01', 'Pendente');
+
+INSERT INTO garantia (id_garantia, id_emprestimo, tipo_garantia, descricao) VALUES
+(301, 101, 'Imóvel', 'Apartamento localizado em Içara, valor de mercado R$ 300.000,00'),
+(302, 102, 'Automóvel', 'Carro modelo Honda Civic 2020, valor de mercado R$ 70.000,00'),
+(303, 103, 'Imóvel', 'Casa no interior de Treviso, valor de mercado R$ 150.000,00'),
+(304, 104, 'Imóvel', 'Terreno em Farol de Santa Marta, valor de mercado R$ 100.000,00'),
+(305, 105, 'Veículo', 'Moto Yamaha 2023, valor de mercado R$ 15.000,00'),
+(306, 106, 'Imóvel', 'Apartamento em Forquilhinha, valor de mercado R$ 250.000,00'),
+(307, 107, 'Automóvel', 'Carro modelo Ford Fiesta 2018, valor de mercado R$ 40.000,00'),
+(308, 108, 'Imóvel', 'Casa em Jaguaruna, valor de mercado R$ 200.000,00'),
+(309, 109, 'Automóvel', 'Carro modelo Toyota Corolla 2021, valor de mercado R$ 120.000,00'),
+(310, 110, 'Imóvel', 'Apartamento em Criciúma, valor de mercado R$ 180.000,00');
+
+
+INSERT INTO fiadores (id_fiador, id_estudante, nome_fiador, contato) VALUES
+(401, 1, 'Carlos Silva', '48987654321'),
+(402, 2, 'Fernanda Santos', '48976543210'),
+(403, 3, 'Marcos Almeida', '48987654322'),
+(404, 4, 'Luciana Costa', '48987765432'),
+(405, 5, 'Ricardo Rocha', '48987865432'),
+(406, 6, 'Patrícia Pereira', '48987987654'),
+(407, 7, 'José Lima', '48988098765'),
+(408, 8, 'Ana Souza', '48988123456'),
+(409, 9, 'Eduardo Mendes', '48988234567'),
+(410, 10, 'Beatriz Nunes', '48988345678');
+
+INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago) VALUES
+(501, 201, '2021-02-10', 1000.00),
+(502, 202, '2021-03-10', 1000.00),
+(503, 206, '2022-03-15', 500.00),
+(504, 208, '2023-09-20', 1500.00),
+(505, 209, '2023-10-20', 1000.00),
+(506, 210, '2023-05-05', 1500.00),
+(507, 211, '2023-06-25', 1000.00),
+(508, 213, '2023-07-25', 1000.00),
+(509, 214, '2023-08-25', 1000.00),
+(510, 215, '2023-09-25', 1000.00),
+(511, 218, '2024-07-05', 1000.00),
+(512, 219, '2024-08-05', 1000.00),
+(513, 221, '2023-07-15', 1000.00),
+(514, 222, '2023-08-15', 1000.00),
+(515, 223, '2023-09-15', 1000.00),
+(516, 227, '2024-08-10', 1750.00),
+(517, 228, '2024-09-10', 1750.00),
+(518, 231, '2024-03-01', 500.00),
+(519, 232, '2024-04-01', 500.00),
+(520, 233, '2024-05-01', 500.00),
+(521, 234, '2024-06-01', 500.00),
+(522, 235, '2023-07-01', 1500.00),
+(523, 236, '2023-08-01', 1000.00),
+(524, 237, '2023-09-01', 1000.00),
+(525, 238, '2023-10-01', 1000.00);
+
+
+INSERT INTO instituicoes_financeiras (id_instituicao, id_emprestimo, nome_instituicao, taxa_base) VALUES
+(601, 101, 'Banco do Brasil', 0.05500),
+(602, 102, 'Caixa Econômica Federal', 0.04750),
+(603, 103, 'Itaú Unibanco', 0.06000),
+(604, 104, 'Bradesco', 0.05200),
+(605, 105, 'Santander', 0.05000),
+(606, 106, 'Banco do Brasil', 0.04500),
+(607, 107, 'Caixa Econômica Federal', 0.04850),
+(608, 108, 'Itaú Unibanco', 0.05300),
+(609, 109, 'Bradesco', 0.04900),
+(610, 110, 'Santander', 0.04600);
+
+INSERT INTO contratos (id_contrato, id_emprestimo, data_contrato, arquivo) VALUES
+(701, 101, '2021-01-10', 'contrato_101.pdf'),
+(702, 102, '2022-03-15', 'contrato_102.pdf'),
+(703, 103, '2023-09-20', 'contrato_103.pdf'),
+(704, 104, '2023-05-05', 'contrato_104.pdf'),
+(705, 105, '2023-07-25', 'contrato_105.pdf'),
+(706, 106, '2024-07-05', 'contrato_106.pdf'),
+(707, 107, '2023-07-15', 'contrato_107.pdf'),
+(708, 108, '2024-08-10', 'contrato_108.pdf'),
+(709, 109, '2024-03-01', 'contrato_109.pdf'),
+(710, 110, '2022-10-01', 'contrato_110.pdf');
