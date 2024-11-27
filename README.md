@@ -37,7 +37,7 @@ Abaixo, segue os scripts SQL separados por tipo:
 
 ## Código Fonte do CRUD
 
-Linguagem de Programação C# .NET.
+(ALTERAR ISSO) Linguagem de Programação C# .NET.
 Framework .NET 4.6
 Projeto Windows Forms
 Biblioteca Entity Framework para SQL Server (nativo)
