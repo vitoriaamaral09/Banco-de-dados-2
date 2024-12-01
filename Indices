@@ -1,0 +1,9 @@
+CREATE NONCLUSTERED INDEX idx_id_emprestimo
+ON emprestimo (id_emprestimo);
+
+CREATE NONCLUSTERED INDEX idx_valor_emprestimo
+ON emprestimo (valor_emprestimo);
+
+CREATE INDEX idx_pagamentos_id ON pagamentos(id_pagamento);
+
+CREATE UNIQUE INDEX idx_estudantes_email ON estudante(email);
