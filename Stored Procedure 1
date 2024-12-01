@@ -1,0 +1,25 @@
+CREATE PROCEDURE sp_RankingEstudantesInadimplentes
+AS
+BEGIN
+    -- Calcular o total de parcelas em atraso.
+    DECLARE @total_parcelas_atrasadas INT;
+
+    SELECT @total_parcelas_atrasadas = COUNT(*)
+    FROM parcelas
+    WHERE data_vencimento < GETDATE() AND status != 'pago';
+
+    -- Exibir o total de parcelas em atraso
+    PRINT 'Total de parcelas em atraso: ' + CAST(@total_parcelas_atrasadas AS VARCHAR(10));
+
+    -- Ranking dos 5 primeiros estudantes mais inadimplentes
+    SELECT TOP 5 e.id_estudante, e.nome, COUNT(p.id_parcelas) AS parcelas_atrasadas
+    FROM estudante e
+    JOIN emprestimo em ON e.id_estudante = em.id_estudante
+    JOIN parcelas p ON em.id_emprestimo = p.id_emprestimo
+    WHERE p.data_vencimento < GETDATE() AND p.status != 'pago'
+    GROUP BY e.id_estudante, e.nome
+    ORDER BY parcelas_atrasadas DESC;
+END;
+
+-- Chamar a stored procedure para mostrar o ranking dos estudantes inadimplentes
+EXEC sp_RankingEstudantesInadimplentes;
