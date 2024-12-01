@@ -1,0 +1,15 @@
+CREATE TRIGGER trg_PreventDeletePagamentos
+ON pagamentos
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- Aparece a mensagem de erro
+    RAISERROR('A exclusão de registros na tabela de pagamentos não é permitida.', 16, 1);
+    
+    -- Cancelar a operação de DELETE
+    ROLLBACK;
+END;
+
+
+--Aqui é para testar se a Trigger está funcionando
+DELETE FROM pagamentos WHERE id_pagamento = 1;
