@@ -1,6 +1,0 @@
-INSERT INTO estudante (id_estudante, nome, email, curso, data_entrada) VALUES
-(11, 'Janaina Pereira', 'jana.pereira01@email.com', 'Psicologia', '2022-02-10'),
-(12, 'Eduardo Dalmolin Ferreira', 'eduardodalfer@email.com', 'Administração', '2021-02-15'),
-(13, 'Luca da Silva Soares', 'lucass@email.com', 'Medicina', '2023-08-02'),
-(14, 'Maria Pacheco', 'mariapacheco@email.com', 'Ciências Contábeis', '2021-02-15'),
-(15, 'Isabelle dos Santos', 'isabellesantos18@email.com', 'Arquitetura e Urbanismo', '2023-08-15');
