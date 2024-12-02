@@ -1,0 +1,41 @@
+Quantas parcelas já foram pagas por cada estudante e qual o valor total pago por cada um?
+
+WITH PagamentosEstudantes AS (
+    SELECT 
+        e.nome AS estudante, 
+        COUNT(pag.id_pagamento) AS total_parcelas_pagas, 
+        SUM(pag.valor_pago) AS valor_total_pago,
+        SUM(parc.valor_parcela) AS valor_total_a_pagar
+    FROM 
+        estudante e
+    JOIN 
+        emprestimo emp ON e.id_estudante = emp.id_estudante
+    JOIN 
+        parcelas parc ON emp.id_emprestimo = parc.id_emprestimo
+    LEFT JOIN 
+        pagamentos pag ON parc.id_parcelas = pag.id_parcelas
+    GROUP BY 
+        e.nome
+),
+RankingDevedores AS (
+    SELECT 
+        estudante, 
+        total_parcelas_pagas, 
+        valor_total_pago, 
+        valor_total_a_pagar, 
+        (valor_total_a_pagar - valor_total_pago) AS valor_pendente,
+        RANK() OVER (ORDER BY (valor_total_a_pagar - valor_total_pago) DESC) AS ranking_devedor
+    FROM 
+        PagamentosEstudantes
+)
+SELECT 
+    ranking_devedor, 
+    estudante, 
+    total_parcelas_pagas, 
+    valor_total_pago, 
+    valor_total_a_pagar, 
+    valor_pendente
+FROM 
+    RankingDevedores
+ORDER BY 
+    ranking_devedor;
