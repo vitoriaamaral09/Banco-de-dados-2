@@ -1,0 +1,39 @@
+--codigo da trigger para alterar status de parcela quando for adicionado um pagamento
+CREATE TRIGGER ti_pagamento ON pagamentos FOR INSERT AS
+BEGIN
+	IF ROWCOUNT_BIG() = 0
+		return
+
+	DECLARE @id_pagamento smallint,
+			@id_parcelas smallint,
+			@data_pagamento date,
+			@valor_pago decimal(10,2)
+
+	-- BUSCA OS DADOS INSERIDOS NA TABELA PELO COMANDO DE INSERT QUE DISPAROU A TRIGGER (INSERT DA STORED PROCEDURE)
+	SELECT @id_pagamento = id_pagamento,
+	       @id_parcelas = id_parcelas,
+		   @data_pagamento = data_pagamento,
+		   @valor_pago = valor_pago		   
+	  FROM inserted 
+	  
+	  IF @valor_pago > 0
+	  BEGIN
+
+		UPDATE parcelas SET status= 'Pago' where @id_parcelas = id_parcelas 
+		
+	  END
+	  ELSE
+	  BEGIN
+		RAISERROR ('Procedimento não pode ser realizado!', 16, 1)
+	  END
+		
+END
+GO
+
+--teste1
+INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago) VALUES (526, 216, '2023-10-25' ,750.00);
+
+SELECT status from parcelas where id_parcelas = 216
+
+--teste2
+INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago) VALUES (527, 217, '2023-10-25' ,0);

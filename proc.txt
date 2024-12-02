@@ -1,0 +1,19 @@
+--codigo procedimento armazenado para adicionar pagamento
+CREATE OR ALTER PROC pr_adc_pagamento  (
+  @id_pagamento smallint,
+  @id_parcelas smallint,
+  @data_pagamento date,
+  @valor_pago decimal(10,2)
+) AS 
+BEGIN 
+ 
+	INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago)
+		VALUES (@id_pagamento, @id_parcelas, @data_pagamento, @valor_pago)
+	 
+END 
+GO
+
+--teste
+EXEC pr_adc_pagamento 529, 203, '2023-10-25' ,1000.00
+
+select status from parcelas where id_parcelas = 203

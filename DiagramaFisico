@@ -13,7 +13,8 @@ CREATE TABLE [emprestimo] (
   [valor_emprestimo] decimal(10,2),
   [data_inicio] date,
   [data_vencimento] date,
-  [taxa_juros] decimal(5,2)
+  [taxa_juros] decimal(5,2),
+  [total_parcelas] smallint
 )
 GO
 
