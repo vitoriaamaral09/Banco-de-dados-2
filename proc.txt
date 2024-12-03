@@ -20,7 +20,7 @@ END
 GO
 
 --teste1
-EXEC pr_adc_pagamento 529, 203, '2023-10-25' , 1000.00
+EXEC pr_adc_pagamento 1008, 212, '2023-10-25' , 1000.00
 
 select status from parcelas where id_parcelas = 212
 
