@@ -1,22 +1,19 @@
---QUAL O TOTAL DE PARCELAS EM ATRASO DE CADA ESTUDANTE E UM RANKING DOS 5 MAIS INADIMPLENTES?
+--QUAL O TOTAL DE PARCELAS EM ATRASO DE CADA ESTUDANTE DOS 5 MAIS INADIMPLENTES?
 
-SELECT 
-    e.id_estudante, e.nome,
-    COUNT(p.id_parcelas) AS total_parcelas_atrasadas,
-    RANK() OVER (ORDER BY COUNT(p.id_parcelas) DESC) AS ranking_inadimplente
+SELECT TOP 5 
+    e.id_estudante, 
+    e.nome, 
+    COUNT(p.id_parcelas) AS parcelas_atrasadas
 FROM 
-    estudante e
+    dbo.estudante e  -- Se a tabela estiver no esquema dbo
 JOIN 
-    emprestimo em ON e.id_estudante = em.id_estudante
+    dbo.emprestimo em ON e.id_estudante = em.id_estudante
 JOIN 
-    parcelas p ON em.id_emprestimo = p.id_emprestimo
-LEFT JOIN 
-    pagamentos pg ON p.id_parcelas = pg.id_parcelas AND pg.data_pagamento <= GETDATE()  -- Considera pagamentos até a data atual
+    dbo.parcelas p ON em.id_emprestimo = p.id_emprestimo
 WHERE 
-    p.data_vencimento < GETDATE()  -- Parcelas vencidas
-    AND pg.id_pagamento IS NULL  -- Sem pagamento associado
+    p.data_vencimento < GETDATE()  
+    AND p.status != 'pago'          
 GROUP BY 
     e.id_estudante, e.nome
 ORDER BY 
-    total_parcelas_atrasadas DESC
-OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;  -- Limita a 5 resultados
+    parcelas_atrasadas DESC;
