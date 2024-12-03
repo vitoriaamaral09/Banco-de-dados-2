@@ -1,0 +1,22 @@
+CREATE FUNCTION dbo.DadosParcelasPorEmprestimo (@id_emprestimo smallint)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT 
+        id_parcelas,
+        numero_parcela,
+        valor_parcela,
+        data_vencimento,
+        status
+    FROM parcelas
+    WHERE id_emprestimo = @id_emprestimo
+)
+GO
+
+--FUNÇÃO DE TABELA.
+--Escolhi a função de tabela pois ela tem uma performace melhor, utilizando entre outras coisas os indices para otimização de resultados,
+--alem de melhorar o desempenho e flexibilidade comparada à Função Escalar.
+
+--EX de consulta
+SELECT * 
+FROM dbo.DadosParcelasPorEmprestimo(101); -- numero ID Emprestimo.

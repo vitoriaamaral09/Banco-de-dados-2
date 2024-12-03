@@ -1,13 +1,27 @@
 -> Quais estudantes possuem garantias vinculadas aos seus empréstimos, e qual é o valor médio das parcelas de seus empréstimos?
 
+CREATE FUNCTION dbo.CalcularValorMedioParcelas(@IdEmprestimo INT)
+RETURNS DECIMAL(10, 2)
+AS
+BEGIN
+    DECLARE @Media DECIMAL(10, 2);
+    SELECT @Media = AVG(valor_parcela)
+    FROM parcelas
+    WHERE id_emprestimo = @IdEmprestimo;
+    RETURN @Media;
+END;
+
 SELECT 
     e.nome AS NomeEstudante,
     e.curso AS Curso,
     g.tipo_garantia AS TipoGarantia,
-    CAST(AVG(p.valor_parcela) AS DECIMAL(10, 2)) AS ValorMedioParcelas
+    dbo.CalcularValorMedioParcelas(emp.id_emprestimo) AS ValorMedioParcelas
 FROM estudante e
 JOIN emprestimo emp ON e.id_estudante = emp.id_estudante
 JOIN garantia g ON emp.id_emprestimo = g.id_emprestimo
-JOIN parcelas p ON emp.id_emprestimo = p.id_emprestimo
-GROUP BY e.nome, e.curso, g.tipo_garantia
-ORDER BY AVG(p.valor_parcela) DESC;
+WHERE EXISTS (
+    SELECT 1
+    FROM parcelas p
+    WHERE p.id_emprestimo = emp.id_emprestimo
+)
+ORDER BY dbo.CalcularValorMedioParcelas(emp.id_emprestimo) DESC;
