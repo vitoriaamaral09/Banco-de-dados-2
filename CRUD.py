@@ -15,7 +15,7 @@ except Exception as e:
     exit()
 
 
-operacao = int(input("Qual operação desejada? Ler(1) Adicionar(2) Excluir(3)"))
+operacao = int(input("Qual operação desejada? Ler(1) Adicionar(2) Excluir(3) Editar(4)"))
 
 #operação select
 if operacao == 1:
@@ -133,6 +133,36 @@ elif operacao == 3:
                 print('Esse id não existe')
         case _ :
              print("Opção inválida. Tente novamente.")
+
+
+elif operacao == 4:
+    tabela = int(input("Escolha a tabela: Estudante(1)"))
+    match tabela :
+        case 1:
+            try:
+                id_estudante = int(input("Digite o ID do estudante: "))
+                nome = input("Qual o nome do estudante?")
+                email = input("Qual o email do estudante?")
+                curso = input("Qual o curso do estudante?")
+                data_entrada = input("Qual a data de entrada?")
+                comando = """update estudante
+                                set nome = ?, 
+                                email = ?, curso = ?, 
+                                data_entrada = ?
+                                where id_estudante = ?"""
+                cursor.execute(comando,( nome, email, curso, data_entrada, id_estudante))
+                conexao.commit()
+                print("Informação atualizada com sucesso")
+
+            except Exception as e:
+                print('Erro ao atualizar dado')
+
+
+
+        case _:
+             print("Opção inválida. Tente novamente.")
+
+
 else:
     print('Operação Invalida')
 
