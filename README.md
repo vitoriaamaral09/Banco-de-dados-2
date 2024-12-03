@@ -27,7 +27,7 @@ Para este projeto foi utilizado o banco de dados [SQL Server](https://www.micros
 
 Abaixo, segue os scripts SQL separados por tipo:
 
-* [DDL ddl.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/DiagramaFisico)
+* DDL [ddl.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/DiagramaFisico)
 * Índices [indices.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Indices)
 * DML [dml.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/PopularTabelas)
 * Triggers [triggers.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/trigger.txt) e [triggers2.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Trigger%201)
