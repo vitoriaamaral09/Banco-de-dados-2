@@ -19,20 +19,19 @@ Arquivo fonte: [Modelo Fisico](link do diagrama).
 
 ## Dicionário de Dados
 
-As informações sobre as tabelas e índices foram documentados na planilha COLOCAR O LINK template1.xlsx.
+As informações sobre as tabelas e índices foram documentados na planilha [template1.xlsx](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/excel%20financiamento%20estudantil.xlsx).
 
 ## Scripts SQL
 
-Para este projeto foi utilizado o banco de dados Azure SQL
-Este é o procedimento para criação do banco de dados Azure SQL Criando SQL Azure serverless no Azure gratuito - Sem cartão de crédito.
+Para este projeto foi utilizado o banco de dados [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads).
 
 Abaixo, segue os scripts SQL separados por tipo:
 
 * DDL ddl.sql (arrumar link)
-* Índices indices.sql (arrumar link)
+* Índices [indices.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Indices)
 * DML [dml.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/PopularTabelas)
-* Triggers triggers.sql (arrumar link)
-* Stored Procedures stored_procedures.sql (arrumar link)
+* Triggers [triggers.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/trigger.txt) e [triggers2.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Trigger%201)
+* Stored Procedures [stored_procedures.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Stored%20Procedure%201)
 * Functions functions.sql (arrumar link)
 
 ## Código Fonte do CRUD
@@ -41,7 +40,7 @@ Abaixo, segue os scripts SQL separados por tipo:
 Framework .NET 4.6
 Projeto Windows Forms
 Biblioteca Entity Framework para SQL Server (nativo)
-Codigo Fonte(link aqui)
+[Codigo Fonte](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/CRUD.py)
 
 ## Relatório Final
 
