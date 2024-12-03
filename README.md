@@ -32,7 +32,7 @@ Abaixo, segue os scripts SQL separados por tipo:
 * DML [dml.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/PopularTabelas)
 * Triggers [triggers.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/trigger.txt) e [triggers2.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Trigger%201)
 * Stored Procedures [stored_procedures.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/Stored%20Procedure%201)
-* [Functions functions.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/FUNCTION)
+* Functions [functions.sql](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/FUNCTION)
 
 ## Código Fonte do CRUD
 
