@@ -3,15 +3,15 @@
 CREATE PROCEDURE [dbo].[TotalEmprestimosUltimos12Meses]
 AS
 BEGIN
-    -- Declaração de variável para armazenar o total de empréstimos
+   
     DECLARE @TotalEmprestimos DECIMAL(10, 2);
 
-    -- Calcular o total de empréstimos concedidos nos últimos 12 meses
+    
     SELECT @TotalEmprestimos = SUM(valor_emprestimo)
     FROM emprestimo
     WHERE data_inicio >= DATEADD(MONTH, -12, GETDATE());
 
-    -- Exibir o resultado
+   
     SELECT 
         @TotalEmprestimos AS TotalEmprestimosUltimos12Meses;
 END
