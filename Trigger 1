@@ -13,3 +13,6 @@ END;
 
 --Aqui é para testar se a Trigger está funcionando
 DELETE FROM pagamentos WHERE id_pagamento = 1;
+
+--Escolhi essa trigger para proteger essa regra de negocio muito importante, como a tabela "pagamentos",
+---para evitar a perda de dados dos emprestimos ativos e que ainda faltam pagar.
