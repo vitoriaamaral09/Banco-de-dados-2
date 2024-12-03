@@ -36,11 +36,9 @@ Abaixo, segue os scripts SQL separados por tipo:
 
 ## Código Fonte do CRUD
 
-(ALTERAR ISSO) Linguagem de Programação C# .NET.
-Framework .NET 4.6
-Projeto Windows Forms
-Biblioteca Entity Framework para SQL Server (nativo)
-[Codigo Fonte](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/CRUD.py)
+* Linguagem de Programação Python
+* Biblioteca Pyodbc
+* [Codigo Fonte](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/CRUD.py)
 
 ## Relatório Final
 
