@@ -1,3 +1,5 @@
+>> Crie uma stored procedure que receba o nome de um curso como parâmetro e retorne o valor total emprestado, a taxa média de juros e a quantidade de estudantes com empréstimos pendentes nesse curso.
+
 CREATE PROCEDURE ConsultarEmprestimosPorCurso
     @curso NVARCHAR(50) -- Parâmetro para o nome do curso
 AS
