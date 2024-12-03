@@ -3,7 +3,7 @@ import pyodbc
 dados_conexao = (
 "Driver={SQL Server};"
 "Server=localhost\SQLEXPRESS;"
-"Database=Master;"
+"Database=model;"
 )
 try:
     conexao = pyodbc.connect(dados_conexao)
