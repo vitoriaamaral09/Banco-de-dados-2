@@ -1,0 +1,21 @@
+--A instituição financeira do banco do brasil(id=601) fez quantos contratos em 2020? E em 2021?
+
+CREATE OR ALTER PROCEDURE pr_ContratosPorInstituicao(@id_instituicao int, @data_inicio date, @data_fim date) AS
+BEGIN
+	SELECT
+		COUNT(id_contrato) AS total_contratos
+    FROM 
+        contratos c
+	LEFT JOIN
+		emprestimo em ON c.id_emprestimo = em.id_emprestimo
+	LEFT JOIN
+		instituicoes_financeiras ifs ON em.id_emprestimo = ifs.id_emprestimo
+    WHERE 
+        ifs.id_instituicao = @id_instituicao
+        AND c.data_contrato BETWEEN @data_inicio AND @data_fim;
+END 
+GO
+
+--execucao stored procedure
+EXEC pr_ContratosPorInstituicao 601, '2020-01-01', '2020-12-31'
+EXEC pr_ContratosPorInstituicao 601, '2021-01-01', '2021-12-31'
