@@ -13,10 +13,12 @@ RETURN (
 )
 GO
 
---FUNÇÃO DE TABELA.
---Escolhi a função de tabela pois ela tem uma performace melhor, utilizando entre outras coisas os indices para otimização de resultados,
---alem de melhorar o desempenho e flexibilidade comparada à Função Escalar.
 
 --EX de consulta
 SELECT * 
 FROM dbo.DadosParcelasPorEmprestimo(101); -- numero ID Emprestimo.
+
+
+--FUNÇÃO DE TABELA.
+--Escolhi a função de tabela pois ela tem um desempenho melhor, utilizando entre outras coisas os índices para otimização de resultados,
+--além de reutilizar em consultas, pode alterar um única vez, é flexibilidade  e eficiente, comparada à Função Escalar.
