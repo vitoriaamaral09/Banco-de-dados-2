@@ -6,10 +6,16 @@ CREATE OR ALTER PROC pr_adc_pagamento  (
   @valor_pago decimal(10,2)
 ) AS 
 BEGIN 
- 
-	INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago)
+	IF @valor_pago <= 0
+ 	BEGIN
+		RAISERROR('O valor do pagamento deve ser maior que zero.', 16, 1);
+ 		RETURN;
+    	END
+	ELSE
+	BEGIN
+		INSERT INTO pagamentos (id_pagamento, id_parcelas, data_pagamento, valor_pago)
 		VALUES (@id_pagamento, @id_parcelas, @data_pagamento, @valor_pago)
-	 
+	 END
 END 
 GO
 
