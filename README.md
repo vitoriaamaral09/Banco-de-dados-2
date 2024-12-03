@@ -42,4 +42,4 @@ Abaixo, segue os scripts SQL separados por tipo:
 
 ## Relatório Final
 
-O relatório final está disponível no arquivo template1.docx((https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/template1.docx)).
+O relatório final está disponível no arquivo [template1.docx](https://github.com/vitoriaamaral09/Banco-de-dados-2/blob/main/template1.docx).
